@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="sign_in.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script>
+function validateForm() 
+{
+ var x = document.forms["myForm"]["username"].value;
+ var y = document.forms["myForm"]["password"].value;
+ var z= x.substring(0,1);
+ if ((x == "" || x == null)&& (y == "" || y == null) )
+ {
+alert("Username and Password must be entered !");
+return false;
+ }
+ if (x == "" || x == null) 
+ {
+alert("Username must be entered");
+return false;
+ }
+  if (y == "" || y == null) 
+ {
+alert(" Password must be entered");
+return false;
+ }
+ if(z!='E')
+ {
+     alert("Invalid empID");
+     return false;
+ }
+ var DefaultPass="DBM@Airport";
+ var n=DefaultPass.localeCompare(y);
+ if(n!=0)
+ {
+     alert("Invalid Password");
+     return false;
+ }
+} 
+</script>
+
+<style>
+
+body
+{
+margin:0;
+padding:0;
+background-image:url(a.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+background-position:center;
+font-family:sans-serif;
+}
+
+.SignupBox
+{
+width:350px;
+height:250px;
+background:transparent;
+color:palevioletred;
+top:50%;
+left:50%;
+border:2px outset lightpink;
+position:absolute;
+transform:translate(-50%,-50%);
+box-sizing:border-box;
+padding:10px 30px;
+}
+
+h1
+{
+margin:0;
+padding:0 0 10px;
+text-align:center;
+font-size:30px;
+color:palevioletred;
+}
+
+
+.SignupBox p
+{
+margin: 0;
+padding: 0;
+font-weight: bold;
+font-size:18px;
+}
+
+.SignupBox input
+{
+width: 100%;
+margin-bottom:20px;
+
+}
+
+.SignupBox input[type="text"],input[type="password"],input[type="email"]
+{
+border: none;
+border-bottom:1px solid#fff;
+background: transparent;
+    outline:none;
+    color:#fff;
+    font-size:18px;
+height:40px;
+}
+
+.SignupBox input[type="submit"]
+{
+    border:none;
+    outline:none;
+    height:30px;
+    background:lightpink;
+    color:darkgreen;
+    font-size:18px;
+    border-radius:20px;
+
+}
+
+.SignupBox input[type="submit"]:hover
+{
+cursor:pointer;
+background:palevioletred;
+color:darkgreen;
+}
+
+.SignupBox a
+{
+text-decoration:none;
+font-size:15px;
+line-height:20px;
+color:mistyrose;
+text-align:center;
+}
+
+.SignupBox a:hover
+{
+color:pink;
+}
+
+</style>
+</head>
+<body>
+<div class="flipcard">
+<div class="SignupBox">
+<h1>LOGIN</h1>
+<form name="myForm" action='AIRphp.php' onsubmit='return validateForm()' method='post' required>
+<input type="text" name="username" placeholder="Enter EmployeeID" >
+<input type="password" name="password" placeholder="Enter Password"><br><br>
+<input type="submit" name="submit" value="Login">
+</form>
+</div>
+</div> 
+</body>
+</html>
